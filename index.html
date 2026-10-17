@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Energi - Media Pembelajaran IPAS Kelas IV</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HALAMAN LOGIN -->
+    <section id="login-section" class="page active">
+        <div class="login-card">
+            <div class="mascot-icon">⚡</div>
+            <h1>Petualangan Energi</h1>
+            <p class="subtitle">Belajar Perubahan Energi Jadi Seru!</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="student-name">Nama Lengkap</label>
+                    <input type="text" id="student-name" placeholder="Masukkan nama kamu..." required>
+                </div>
+                <div class="form-group">
+                    <label for="student-class">Kelas / Rombel</label>
+                    <select id="student-class" required>
+                        <option value="">-- Pilih Kelas --</option>
+                        <option value="Kelas 4A">Kelas 4A</option>
+                        <option value="Kelas 4B">Kelas 4B</option>
+                        <option value="Kelas 4C">Kelas 4C</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Mulai Belajar 🚀</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- DASHBOARD & KONTEN UTAMA (SPA) -->
+    <div id="main-app" class="app-container hidden">
+        <!-- Sidebar / Navigation -->
+        <header class="navbar">
+            <div class="nav-brand">⚡ Petualangan Energi</div>
+            <div class="nav-user">
+                Halo, <span id="display-name">Siswa</span>! (<span id="display-class">-</span>)
+                <button id="btn-logout" class="btn-text">Keluar</button>
+            </div>
+        </header>
+
+        <div class="main-layout">
+            <nav class="sidebar">
+                <button class="nav-link active" data-target="dashboard-page">🏠 Dashboard</button>
+                <button class="nav-link" data-target="material-page">📚 Materi</button>
+                <button class="nav-link" data-target="activity-page">🧩 Aktivitas Belajar</button>
+                <button class="nav-link" data-target="game-page">🎮 Permainan</button>
+                <button class="nav-link" data-target="quiz-page">📝 Kuis</button>
+                <button class="nav-link" data-target="result-page">📊 Hasil Belajar</button>
+                <button class="nav-link" data-target="guide-page">📖 Petunjuk</button>
+                <button class="nav-link" data-target="about-page">ℹ️ Tentang Media</button>
+            </nav>
+
+            <main class="content-area">
+                <!-- DASHBOARD PAGE -->
+                <div id="dashboard-page" class="tab-content active">
+                    <div class="welcome-banner">
+                        <h2>Selamat Datang, <span id="banner-name">Penjelajah Energi</span>! 👋</h2>
+                        <p>Ayo jelajahi bagaimana energi di sekitar kita dapat berubah bentuk untuk membantu kehidupan sehari-hari.</p>
+                    </div>
+                    
+                    <div class="progress-card">
+                        <h3>Indikator Kemajuan Belajar Kamu</h3>
+                        <div class="progress-bar-container">
+                            <div id="global-progress-bar" class="progress-bar" style="width: 0%;"></div>
+                        </div>
+                        <p id="progress-text">Penyelesaian: 0%</p>
+                    </div>
+
+                    <div class="menu-grid">
+                        <div class="menu-card" onclick="switchTab('material-page')">
+                            <div class="icon">📚</div>
+                            <h3>Materi</h3>
+                            <p>Pelajari bentuk & perubahan energi.</p>
+                        </div>
+                        <div class="menu-card" onclick="switchTab('activity-page')">
+                            <div class="icon">🧩</div>
+                            <h3>Aktivitas</h3>
+                            <p>Uji pemahaman lewat latihan seru.</p>
+                        </div>
+                        <div class="menu-card" onclick="switchTab('game-page')">
+                            <div class="icon">🎮</div>
+                            <h3>Permainan</h3>
+                            <p>Mainkan "Antarkan Energi ke Tujuannya!".</p>
+                        </div>
+                        <div class="menu-card" onclick="switchTab('quiz-page')">
+                            <div class="icon">📝</div>
+                            <h3>Kuis</h3>
+                            <p>Kerjakan 10 soal pilihan ganda.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MATERIAL PAGE -->
+                <div id="material-page" class="tab-content">
+                    <h2>Materi: Mengubah Bentuk Energi</h2>
+                    <p class="section-desc">Gunakan tombol navigasi di bawah card untuk membaca materi secara bertahap.</p>
+                    
+                    <div class="material-slider">
+                        <div class="card material-card active" data-index="0">
+                            <h3>1. Apa itu Energi?</h3>
+                            <p class="material-snippet"><strong>Penjelasan:</strong> Energi adalah kemampuan untuk melakukan kerja atau usaha. Energi tidak dapat diciptakan dan tidak dapat dimusnahkan, tetapi energi dapat diubah bentuknya.</p>
+                            <div class="example-box">
+                                <strong>Contoh Sehari-hari:</strong> Tubuh kita butuh energi dari makanan supaya bisa berjalan, berlari, dan belajar.
+                            </div>
+                            <div class="energy-flow">Bentuk Energi: <span>Energi Kimia (Makanan)</span> ➔ <span>Energi Gerak & Panas (Aktivitas)</span></div>
+                        </div>
+
+                        <div class="card material-card" data-index="1">
+                            <h3>2. Perubahan Energi pada Lampu</h3>
+                            <p class="material-snippet"><strong>Penjelasan:</strong> Saat saklar ditekan, arus mengalir ke bola lampu ruangan.</p>
+                            <div class="example-box">
+                                <strong>Contoh:</strong> Lampu kamar atau lampu belajar.
+                            </div>
+                            <div class="energy-flow">Perubahan: <span>Energi Listrik</span> ➔ <span>Energi Cahaya (+ sebagian Energi Panas)</span></div>
+                        </div>
+
+                        <div class="card material-card" data-index="2">
+                            <h3>3. Perubahan Energi pada Kipas Angin</h3>
+                            <p class="material-snippet"><strong>Penjelasan:</strong> Motor di dalam kipas angin memanfaatkan arus listrik untuk memutar baling-baling.</p>
+                            <div class="example-box">
+                                <strong>Contoh:</strong> Kipas angin listrik di rumah.
+                            </div>
+                            <div class="energy-flow">Perubahan: <span>Energi Listrik</span> ➔ <span>Energi Gerak</span></div>
+                        </div>
+
+                        <div class="card material-card" data-index="3">
+                            <h3>4. Perubahan Energi pada Alat Penghasil Bunyi (Pengeras Suara / Speaker)</h3>
+                            <p class="material-snippet"><strong>Penjelasan:</strong> Alat elektronik seperti speaker mengubah sinyal listrik menjadi getaran suara yang bisa didengar telinga.</p>
+                            <div class="example-box">
+                                <strong>Contoh:</strong> Radio, bel sekolah, dan speaker pengeras suara.
+                            </div>
+                            <div class="energy-flow">Perubahan: <span>Energi Listrik</span> ➔ <span>Energi Bunyi</span></div>
+                        </div>
+
+                        <div class="card material-card" data-index="4">
+                            <h3>5. Perubahan Energi Menjadi Panas (Rice Cooker)</h3>
+                            <p class="penjelasan"><strong>Penjelasan:</strong> Penanak nasi elektrik menggunakan elemen pemanas untuk memasak beras menjadi nasi.</p>
+                            <div class="example-box">
+                                <strong>Contoh:</strong> Rice cooker (penanak nasi) dan setrika listrik.
+                            </div>
+                            <div class="energy-flow">Perubahan: <span>Energi Listrik</span> ➔ <span>Energi Panas</span></div>
+                        </div>
+
+                        <div class="card material-card" data-index="5">
+                            <h3>6. Perubahan Energi pada Senter (Materi Pendukung)</h3>
+                            <p class="penjelasan"><strong>Penjelasan:</strong> Senter menggunakan baterai yang menyimpan energi kimia, dialirkan melalui kabel menjadi listrik, lalu menyala jadi cahaya.</p>
+                            <div class="example-box">
+                                <strong>Contoh:</strong> Senter saat mati lampu.
+                            </div>
+                            <div class="energy-flow">Perubahan: <span>Energi Kimia (Baterai)</span> ➔ <span>Energi Listrik</span> ➔ <span>Energi Cahaya</span></div>
+                        </div>
+                    </div>
+
+                    <div class="slider-nav">
+                        <button id="prev-mat" class="btn-secondary">⬅️ Sebelumnya</button>
+                        <span id="mat-counter">1 dari 6</span>
+                        <button id="next-mat" class="btn-primary">Berikutnya ➡️</button>
+                    </div>
+                </div>
+
+                <!-- ACTIVITY PAGE -->
+                <div id="activity-page" class="tab-content">
+                    <h2>Aktivitas Belajar: Uji Pemahaman Cepat</h2>
+                    <p class="section-desc">Jawab pertanyaan interaktif di bawah ini untuk menguji pemahamanmu tentang perubahan energi!</p>
+                    
+                    <div class="card activity-box">
+                        <h3 id="act-question">Soal Aktivitas 1: Perubahan energi apa yang terjadi saat kita menyalakan kipas angin?</h3>
+                        <div class="options-container" id="act-options">
+                            <button class="opt-btn" data-correct="false">Energi Kimia menjadi Cahaya</button>
+                            <button class="opt-btn" data-correct="true">Energi Listrik menjadi Gerak</button>
+                            <button class="opt-btn" data-correct="false">Energi Panas menjadi Bunyi</button>
+                        </div>
+                        <div id="act-feedback" class="feedback-box hidden"></div>
+                        <button id="next-act" class="btn-primary hidden" style="margin-top: 15px;">Soal Berikutnya ➡️</button>
+                    </div>
+                </div>
+
+                <!-- GAME PAGE -->
+                <div id="game-page" class="tab-content">
+                    <h2>Permainan: Antarkan Energi ke Tujuannya!</h2>
+                    <p class="section-desc">Pasangkan benda elektronik di sebelah kiri dengan bentuk energi hasil perubahan utamanya di sebelah kanan.</p>
+                    
+                    <div class="game-container">
+                        <div class="game-score-board">Skor Kamu: <span id="game-score">0</span></div>
+                        <div class="game-board-grid">
+                            <div class="game-col">
+                                <h4>Benda / Alat</h4>
+                                <div class="draggable-item" draggable="true" data-match="gerak">🌀 Kipas Angin</div>
+                                <div class="draggable-item" draggable="true" data-match="cahaya">💡 Lampu Belajar</div>
+                                <div class="draggable-item" draggable="true" data-match="bunyi">🔊 Pengeras Suara</div>
+                                <div class="draggable-item" draggable="true" data-match="panas">🍚 Rice Cooker</div>
+                            </div>
+                            <div class="game-col">
+                                <h4>Target Energi Hasil</h4>
+                                <div class="drop-zone" data-target="gerak">Energi Gerak</div>
+                                <div class="drop-zone" data-target="cahaya">Energi Cahaya</div>
+                                <div class="drop-zone" data-target="bunyi">Energi Bunyi</div>
+                                <div class="drop-zone" data-target="panas">Energi Panas</div>
+                            </div>
+                        </div>
+                        <div id="game-feedback" class="feedback-box hidden" style="margin-top: 15px;"></div>
+                        <button id="reset-game" class="btn-secondary" style="margin-top: 15px;">Main Lagi 🔄</button>
+                    </div>
+                </div>
+
+                <!-- QUIZ PAGE -->
+                <div id="quiz-page" class="tab-content">
+                    <h2>Kuis Pilihan Ganda (10 Soal Bab 1)</h2>
+                    <div id="quiz-container">
+                        <div class="quiz-header-info">
+                            <span>Soal <span id="current-quiz-no">1</span> dari 10</span>
+                        </div>
+                        <div class="card quiz-card">
+                            <h3 id="quiz-question-text">Pertanyaan kuis akan tampil di sini...</h3>
+                            <div id="quiz-options-container" class="quiz-options">
+                                <!-- Pilihan opsi dimuat lewat JS -->
+                            </div>
+                        </div>
+                        <div class="quiz-nav-buttons">
+                            <button id="quiz-prev" class="btn-secondary">Sebelumnya</button>
+                            <button id="quiz-next" class="btn-primary">Berikutnya</button>
+                        </div>
+                    </div>
+
+                    <!-- Hasil Kuis Tersembunyi sebelum selesai -->
+                    <div id="quiz-result-view" class="card hidden">
+                        <h3>🎉 Kuis Selesai!</h3>
+                        <p>Nama: <span id="res-name"></span></p>
+                        <p>Nilai Akhir: <strong id="res-score" style="font-size: 24px; color: #2563eb;">0</strong> / 100</p>
+                        <p>Jawaban Benar: <span id="res-benar">0</span> | Jawaban Salah: <span id="res-salah">0</span></p>
+                        <div id="quiz-feedback-banner" class="feedback-box">Bagus sekali! Tetap semangat belajar.</div>
+                        
+                        <h4 style="margin-top: 20px;">Pembahasan Soal:</h4>
+                        <div id="quiz-review-list" style="text-align: left; max-height: 300px; overflow-y: auto; padding: 10px; background: #f8fafc; border-radius: 8px;"></div>
+                        
+                        <button id="btn-repeat-quiz" class="btn-primary" style="margin-top: 15px;">Ulangi Kuis 🔄</button>
+                    </div>
+                </div>
+
+                <!-- RESULT PAGE -->
+                <div id="result-page" class="tab-content">
+                    <h2>Hasil & Kemajuan Belajar</h2>
+                    <div class="card">
+                        <h3>Profil Penjelajah</h3>
+                        <p><strong>Nama:</strong> <span id="summary-name">-</span></p>
+                        <p><strong>Kelas:</strong> <span id="summary-class">-</span></p>
+                        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #e2e8f0;">
+                        <h3>Statistik Pembelajaran</h3>
+                        <p>✅ Materi Dipelajari: <span id="sum-mat-status">Belum Selesai</span></p>
+                        <p>🧩 Aktivitas Dikerjakan: <span id="sum-act-status">Belum Selesai</span></p>
+                        <p>📝 Nilai Kuis Terakhir: <span id="sum-quiz-score">-</span></p>
+                        
+                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button id="btn-reset-data" class="btn-secondary" style="background: #fee2e2; color: #dc2626; border: none;">Reset Data Belajar 🗑️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GUIDE PAGE -->
+                <div id="guide-page" class="tab-content">
+                    <h2>Petunjuk Penggunaan</h2>
+                    <div class="card">
+                        <ol class="guide-list">
+                            <li>Masukkan nama lengkap dan pilih kelas pada halaman awal, lalu tekan <strong>Mulai Belajar</strong>.</li>
+                            <li>Buka menu <strong>Materi</strong> untuk membaca ringkasan tentang perubahan bentuk energi secara bertahap.</li>
+                            <li>Kerjakan <strong>Aktivitas Belajar</strong> untuk melatih ketepatan berpikirmu.</li>
+                            <li>Mainkan <strong>Permainan</strong> "Antarkan Energi ke Tujuannya!" agar belajar semakin menyenangkan.</li>
+                            <li>Kerjakan <strong>Kuis</strong> 10 soal pilihan ganda untuk menguji kemampuan akhirmu.</li>
+                            <li>Cek pencapaianmu pada menu <strong>Hasil Belajar</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- ABOUT PAGE -->
+                <div id="about-page" class="tab-content">
+                    <h2>Tentang Media Pembelajaran</h2>
+                    <div class="card">
+                        <p><strong>Nama Media:</strong> Petualangan Energi</p>
+                        <p><strong>Mata Pelajaran:</strong> IPAS (Ilmu Pengetahuan Alam dan Sosial)</p>
+                        <p><strong>Jenjang:</strong> Kelas IV SD/MI</p>
+                        <p><strong>Materi Utama:</strong> Mengubah Bentuk Energi (Bab 1 Kurikulum Merdeka Edisi Revisi)</p>
+                        <p><strong>Kurikulum:</strong> Kurikulum Merdeka</p>
+                        <p style="margin-top: 15px;"><strong>Referensi Utama Buku Resmi:</strong><br>
+                        <a href="https://repositori.kemendikdasmen.go.id/35919/1/IPAS_BS_KLS_IV_Rev.pdf" target="_blank" style="color: #2563eb;">Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Buku Siswa IPAS Kelas IV Revisi</a></p>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
